@@ -75,7 +75,7 @@ var ImageLoader = (function($)
 		var deferred = $.Deferred();
 		var loadedCount = "0";
 		
-		var loadCallback = function($img, $loadParent)
+		var loadCallback = function($img)
 		{
 			return function()
 			{
@@ -92,7 +92,7 @@ var ImageLoader = (function($)
 		{
 		 	var img = $imgs[i];
 		 	var $img = $(img);
-	    	imagesLoaded(img, loadCallback($img, $loadParent));
+	    	imagesLoaded(img, loadCallback($img));
 		}
 		
 		return deferred.promise()		
@@ -107,14 +107,14 @@ var ImageLoader = (function($)
 		var deferred = $.Deferred();
 		var loadedCount = "0";
 		
-		var loadCallback = function($el, img, $loadParent)
+		var loadCallback = function($el, img)
 		{
 			return function()
 			{
 				$el.append(img);				
-				setStatus($(img));
+				setStatus($el);
 		    	loadedCount++;
-		    	if(loadedCount === $imgs.length)
+		    	if(loadedCount === $els.length)
 		        {
 		            deferred.resolve();
 		        }
@@ -126,7 +126,7 @@ var ImageLoader = (function($)
 			var $el = $($els[i]); 	
 			var img = new Image();
 			img.src = $el.data("img");			
-			imagesLoaded(img, loadCallback($el, img, $loadParent));
+			imagesLoaded(img, loadCallback($el, img));
 		}
 		
 		return deferred.promise();
@@ -139,14 +139,14 @@ var ImageLoader = (function($)
 		var deferred = $.Deferred();
 		var loadedCount = "0";
 		
-		var loadCallback = function($el, src, $loadParent)
+		var loadCallback = function($el, src)
 		{
 			return function()
 			{
 				$el.css('background-image', 'url("' + src + '")');			
 				setStatus($el);				
 		    	loadedCount++;
-		    	if(loadedCount === $imgs.length)
+		    	if(loadedCount === $els.length)
 		        {
 		            deferred.resolve();
 		        }
@@ -159,36 +159,48 @@ var ImageLoader = (function($)
 			var src = $el.data("img");
 			var img = new Image();
 			img.src = src;			
-			imagesLoaded(img, loadCallback($el, src, $loadParent));
+			imagesLoaded(img, loadCallback($el, src));
 		}
 		
 		return deferred.promise();
 	};
 	
 	///////// public helpers
+	//shortcut to query all elements with specific classes
 	
 	//imlo_loadstatus
 	that.initLoadStatus = function($root)
 	{
 		$root = $root || $("body");
 		var $els = $root.find(".imlo_loadstatus");
-		that.setLoadStatus($els);
+		return that.setLoadStatus($els);
 	};
 	
 	//imlo_load
-	that.initLoadStatus = function($root)
+	that.initLoadImage = function($root)
 	{
 		$root = $root || $("body");
 		var $els = $root.find(".imlo_load");
-		that.loadImage($els);
+		return that.loadImage($els);
 	};
 	
 	//imlo_loadbg
-	that.initLoadStatus = function($root)
+	that.initLoadImageBg = function($root)
 	{
 		$root = $root || $("body");
 		var $els = $root.find(".imlo_loadbg");
-		that.loadImageBg($els);
+		return that.loadImageBg($els);
+	};
+	
+	that.initAllLoading = function($root)
+	{
+		var promises = [];
+		
+		promises.push(that.initLoadStatus($root));
+		promises.push(that.initLoadImage($root));
+		promises.push(that.initLoadImageBg($root));
+		
+		return promises;	
 	};
 	
 	return that;

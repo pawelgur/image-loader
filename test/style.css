@@ -1,0 +1,30 @@
+img{
+	max-width: 100%;
+	width: 100%;
+	height: auto;
+}
+
+.wrap img,
+.wrap div{
+	width: 200px;
+	height: 200px; /* needed for load-bg  */
+	border: 5px solid transparent;
+	display: inline-block;
+	
+	
+	transition: all 300ms;
+}
+
+.wrap img.loaded,
+.wrap div.loaded{
+	border-color: green;	
+	
+}
+
+.imlo_status-parent{
+	border: 1px solid transparent;
+	transition: all 300ms;
+}
+.imlo_status-parent.loaded{
+	border-color: #D6A7B1;	
+}

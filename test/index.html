@@ -10,11 +10,58 @@
     
   </head>
   <body>
+        
+    <div class="imlo_status-parent">
+      
+      
+      <h2 class="status" >LOADING...</h2>
+      
+      <div class="preload">
+        <h1>Image Preload</h1>
+        <h2>Preloading...</h2>
+      </div>
+      
+      <div class="load-status wrap" >
+        <h1>Load Status (5 images)</h1>
+        <img src="img/1.jpg"  alt="image" />
+        <img src="img/2.jpg"  alt="image" />
+        <img src="img/3.jpg"  alt="image" />
+        <img src="http://lorempixel.com/1500/1500/?1"  alt="image" />
+        <img src="http://lorempixel.com/1500/1500/?2"  alt="image" />
+      </div>
+      
+      <div class="load-image wrap" >
+        <h1>Load Image (5 images)</h1>
+        <div data-img="img/1.jpg"></div>
+        <div data-img="img/2.jpg"></div>
+        <div data-img="img/3.jpg"></div>
+        <div data-img="http://lorempixel.com/1500/1500/?3"></div>
+        <div data-img="http://lorempixel.com/1500/1500/?4"></div>
+      </div>
+      
+      <div class="load-bg wrap" >
+        <h1>Load Background (5 images)</h1>
+        <div data-img="img/1.jpg"></div>
+        <div data-img="img/2.jpg"></div>
+        <div data-img="img/3.jpg"></div>
+        <div data-img="http://lorempixel.com/1500/1500/?5"></div>
+        <div data-img="http://lorempixel.com/1500/1500/?6"></div>
+      </div>
+      
+       <div class="load-helpers wrap" >
+        <h1>Css class helpers (5 images)</h1>
+        <img class="imlo_loadstatus" src="img/1.jpg"  alt="image" />
+        <div class="imlo_load" data-img="img/2.jpg"></div>
+        <div class="imlo_loadbg" data-img="img/3.jpg"></div>
+        <div class="imlo_load" data-img="http://lorempixel.com/1500/1500/?9"></div>
+        <div class="imlo_loadbg" data-img="http://lorempixel.com/1500/1500/?10"></div>
+      </div>
+      
+    </div>
     
 
-    <script src="../bower_components/jquery/jquery.js"></script>
-    <script src="../bower_components/imagesloaded/imagesloaded.pkgd.js"></script>
-    <script src="../src/imageLoader.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../dist/imageLoader.pkgd.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
