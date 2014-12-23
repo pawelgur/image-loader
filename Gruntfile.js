@@ -4,31 +4,24 @@ module.exports = function(grunt){
 		pkg: grunt.file.readJSON('package.json'),
 		uglify : {
 			main : {
-				src: 'src/*.js',
-				dest: 'dist/imageLoader.min.js'
+				src: 'imageLoader.js',
+				dest: 'imageLoader.min.js'
 			},
 			pkgd : {
 				files : {
-					'dist/imageLoader.pkgd.min.js' : ['src/imageLoader.js', 'bower_components/imagesloaded/imagesloaded.pkgd.js']
+					'imageLoader.pkgd.min.js' : ['imageLoader.js', 'bower_components/imagesloaded/imagesloaded.pkgd.js']
 				}
 			}	
 		},
-		copy : {
-			main : {
-				src: 'src/imageLoader.js',
-				dest: 'dist/imageLoader.js'
-			},
-		},
 		watch : {
 			js : {
-				files: 'src/*.js',
-				tasks: ['uglify', 'copy']
+				files: 'imageLoader.js',
+				tasks: ['uglify']
 			}
 		}
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 
 };

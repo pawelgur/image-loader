@@ -2,7 +2,7 @@
   "name": "pg-image-loader",
   "version": "0.1.0",
   "description": "Various helpers for image preloading",
-  "main": "dist/imageLoader.pkgd.min.js",
+  "main": "imageLoader.pkgd.min.js",
   "keywords": [
     "javascript",
     "image load"
@@ -28,6 +28,6 @@
     "imagesloaded": "~3.1.8"
   },
   "devDependencies": {
-    "jquery": "1.11.1"
+    "jquery": "^1.8.0"
   }
 }
