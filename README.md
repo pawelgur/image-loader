@@ -10,11 +10,11 @@ Simple helper module for image preloading:
 
 ####Install
 
-Include *dist/imageLoader.pkgd.min.js* and jQuery in your project.
+Include *imageLoader.pkgd.min.js* and jQuery in your project.
 
 ####Usage
 
-Check *src/imageLoader.js* for public api and check *test/* for example usage.
+Check *imageLoader.js* for public api and check *test/* for example usage.
 
 
 
