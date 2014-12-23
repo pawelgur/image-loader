@@ -1,11 +1,15 @@
-////////////////////////////////////////////////
-//  
-//  IMAGE LOADEDER
+////////////////////////////////////////////
 //
-//  Various helpers for image preloading
+//  IMAGE LOADER
 //
-//  Dependencies: jQuery, imagesloaded.pkgd.js
+//  Simple helper module for image preloading.
 //
+//	@ https://github.com/pawelgur/image-loader
+//	@ Pavel Gurecki
+//	@ 2014-12-23
+//
+////////////////////////////////////////////
+
 
 
 var ImageLoader = (function($)
