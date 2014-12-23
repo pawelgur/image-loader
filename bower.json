@@ -1,0 +1,33 @@
+{
+  "name": "pg-image-loader",
+  "version": "0.1.0",
+  "description": "Various helpers for image preloading",
+  "main": "dist/imageLoader.pkgd.min.js",
+  "keywords": [
+    "javascript",
+    "image load"
+  ],
+  "ignore": [
+    ".gitignore",
+    "bower.json",
+    "node_modules",
+    "Gruntfile.js",
+    "package.json",
+    "src",
+    "test"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/pawelgur/image-loader.git"
+  },
+  "authors": [
+    "Pavel Gurecki <pawelgur@gmail.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "imagesloaded": "~3.1.8"
+  },
+  "devDependencies": {
+    "jquery": "^1.7.2"
+  }
+}
