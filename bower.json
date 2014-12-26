@@ -1,6 +1,6 @@
 {
   "name": "pg-image-loader",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Various helpers for image preloading",
   "main": "imageLoader.pkgd.min.js",
   "keywords": [
