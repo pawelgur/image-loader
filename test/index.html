@@ -8,6 +8,8 @@
 
     <link href="style.css" rel="stylesheet">
     
+    <script src="picturefill.js"></script>
+     
   </head>
   <body>
         
@@ -57,11 +59,20 @@
         <div class="imlo_loadbg" data-img="http://lorempixel.com/1500/1500/?10"></div>
       </div>
       
+      <div class="responsive-img wrap">
+        <h1>Responsive images with srcset (2 images switching based on viewport)</h1>
+        <div 
+          data-img="img/responsive-md.jpg"
+          data-srcset="img/responsive-lg.jpg 1000w, img/responsive-md.jpg 500w"
+          data-sizes="100vw"
+        ></div>
+      </div>
+      
     </div>
     
 
     <script src="../bower_components/jquery/dist/jquery.js"></script>
-    <script src="..//imageLoader.pkgd.min.js"></script>
+    <script src="..//imageLoader.pkgd.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

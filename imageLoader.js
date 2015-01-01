@@ -106,6 +106,7 @@ var ImageLoader = (function($)
 	//	- returns promise object for callback functionality 	
 	//	- sets "loaded" on $el and ancestor with "imlo_status-parent" class
 	//	- method supports jquery array
+	//	- supports responsive images (when data-srcset, data-sizes are set). Tip: use picturefill.js 
 	that.loadImage = function($els)
 	{
 		var deferred = $.Deferred();
@@ -127,9 +128,26 @@ var ImageLoader = (function($)
 		
 		for(var i = 0; i < $els.length; i++)
 		{
-			var $el = $($els[i]); 	
-			var img = new Image();
-			img.src = $el.data("img");			
+			var $el = $($els[i]);  
+						
+			var src = $el.data("img");	
+			var srcset =  $el.data("srcset");
+			var sizes = $el.data("sizes");
+			
+			var $img = $(document.createElement("img")); //native Image doesn't have srcset,sizes attributes in some browsers
+			
+			//NOTE: "src" image is always downloaded, as workaround "src" is not set for responsive images				
+			if(srcset && sizes)
+			{
+				$img.attr("srcset", srcset);
+				$img.attr("sizes", sizes);
+			}
+			else
+			{
+				$img.attr("src", src);
+			}						
+			img = $img[0];
+					
 			imagesLoaded(img, loadCallback($el, img));
 		}
 		

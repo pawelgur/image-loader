@@ -13,15 +13,23 @@ module.exports = function(grunt){
 				}
 			}	
 		},
+		concat : {
+			pkgd : {
+				files : {
+					'imageLoader.pkgd.js' : ['imageLoader.js', 'bower_components/imagesloaded/imagesloaded.pkgd.js']
+				}
+			}	
+		},
 		watch : {
 			js : {
 				files: 'imageLoader.js',
-				tasks: ['uglify']
+				tasks: ['concat', 'uglify']
 			}
 		}
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-concat');
 
 };

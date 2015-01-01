@@ -63,9 +63,15 @@ imagesLoading3.done(function(){
 var statuses = ImageLoader.initAllLoading();
 
 
+//////// responsive images
+
+$els = $(".responsive-img div");
+
+var imagesLoading4 =  ImageLoader.loadImage($els);
+
 // do something when all images are loaded
 
-$.when(imagesLoading1, imagesLoading2, imagesLoading3, 
+$.when(imagesLoading1, imagesLoading2, imagesLoading3, imagesLoading4,
 		statuses[0], statuses[1], statuses[2]
 		).done(function()
 {

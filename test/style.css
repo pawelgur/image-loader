@@ -28,3 +28,13 @@ img{
 .imlo_status-parent.loaded{
 	border-color: #D6A7B1;	
 }
+
+
+.responsive-img div{
+	width: 100%;
+	height: auto;
+}
+.responsive-img img{
+	width: auto;
+	height: auto;
+}
