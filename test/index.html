@@ -51,21 +51,30 @@
       </div>
       
        <div class="load-helpers wrap" >
-        <h1>Css class helpers (5 images)</h1>
+        <h1>Css class helpers (6 images)</h1>
         <img class="imlo_loadstatus" src="img/1.jpg"  alt="image" />
         <div class="imlo_load" data-img="img/2.jpg"></div>
         <div class="imlo_loadbg" data-img="img/3.jpg"></div>
         <div class="imlo_load" data-img="http://lorempixel.com/1500/1500/?9"></div>
         <div class="imlo_loadbg" data-img="http://lorempixel.com/1500/1500/?10"></div>
+        <img class="imlo_loadstatus" 
+          srcset="http://lorempixel.com/1000/500/?st-res-lg 1000w, http://lorempixel.com/500/500/?st-res-sm 600w"
+          sizes="100vw"  
+          alt="image" />
       </div>
       
       <div class="responsive-img wrap">
         <h1>Responsive images with srcset (2 images switching based on viewport)</h1>
         <div 
-          data-img="img/responsive-md.jpg"
-          data-srcset="img/responsive-lg.jpg 1000w, img/responsive-md.jpg 500w"
+          data-img="http://lorempixel.com/500/500/"
+          data-srcset="http://lorempixel.com/1000/500/ 1000w, http://lorempixel.com/500/500/ 500w"
           data-sizes="100vw"
         ></div>
+     <!--    <div 
+       data-img="img/responsive-md.jpg"
+       data-srcset="img/responsive-lg.jpg 1000w, img/responsive-md.jpg 500w"
+       data-sizes="100vw"
+     ></div> -->
       </div>
       
     </div>

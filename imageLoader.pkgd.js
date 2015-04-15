@@ -90,7 +90,7 @@ var ImageLoader = (function($)
 		            deferred.resolve();
 		        }
 	        };		
-		}
+		};
 		
 		for(var i = 0; i < $imgs.length; i++)
 		{
@@ -99,14 +99,14 @@ var ImageLoader = (function($)
 	    	imagesLoaded(img, loadCallback($img));
 		}
 		
-		return deferred.promise()		
+		return deferred.promise();		
 	};
 	
 	// Loads image specified in data-img attribute on wrapper element and appends it to element
 	//	- returns promise object for callback functionality 	
 	//	- sets "loaded" on $el and ancestor with "imlo_status-parent" class
 	//	- method supports jquery array
-	//	- supports responsive images (when data-srcset, data-sizes are set). Tip: use picturefill.js 
+	//	- [NOT due to bug] supports responsive images (when data-srcset, data-sizes are set). Tip: use picturefill.js 
 	that.loadImage = function($els)
 	{
 		var deferred = $.Deferred();
@@ -116,7 +116,10 @@ var ImageLoader = (function($)
 		{
 			return function()
 			{
-				$el.append(img);				
+				var $img = $(img);
+				$img.removeAttr('width');
+				$img.removeAttr('height');
+				$el.append($img);				
 				setStatus($el);
 		    	loadedCount++;
 		    	if(loadedCount === $els.length)
@@ -124,7 +127,7 @@ var ImageLoader = (function($)
 		            deferred.resolve();
 		        }
 	        };		
-		}
+		};
 		
 		for(var i = 0; i < $els.length; i++)
 		{
@@ -137,6 +140,8 @@ var ImageLoader = (function($)
 			var $img = $(document.createElement("img")); //native Image doesn't have srcset,sizes attributes in some browsers
 			
 			//NOTE: "src" image is always downloaded, as workaround "src" is not set for responsive images				
+			//BUG: imagesLoaded doesn't work for responsive images(fires too early)
+			//check https://github.com/desandro/imagesloaded/pull/160 
 			if(srcset && sizes)
 			{
 				$img.attr("srcset", srcset);
@@ -173,7 +178,7 @@ var ImageLoader = (function($)
 		            deferred.resolve();
 		        }
 	        };		
-		}
+		};
 		
 		for(var i = 0; i < $els.length; i++)
 		{
